@@ -1,10 +1,15 @@
 mod filehandling;
+mod screen;
+
 
 fn main(){
-    let res = filehandling::openfile::analyzefilename();
-    if let Ok(rs) = res{
-        println!("Got the file");
+    if let Ok(f) = filehandling::openfile::analyzefilename(){
+        screen::fillscreen::fillterminal(f);
+        
     }else{
-        println!("{:?}",res);
+        println!("Error occured");
     }
 }
+
+
+
